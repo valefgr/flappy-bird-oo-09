@@ -19,7 +19,7 @@ const juego = {
     obstaculos.mover();
     bird.dibujar(); 
     // 6. Llama a contador.dibujar()
-
+    contador.dibujar()
     obstaculos.dibujar();
     juego.verificaColision();
   },
@@ -56,14 +56,14 @@ const juego = {
 const contador = {
 
   // 1. Agrega la propiedad unidades
-
+  unidades: document.querySelector("#unidades"),
 
   // 2. Agrega la propiedad decenas
-
+  decenas: document.querySelector("#decenas"),
 
   // 3. Agrega la propiedad puntaje
+  puntaje: 0,
 
-  
   // 4. Agrega el método dibujar()
   dibujar: function () {
     let digitos = contador.puntaje.toString().split("").reverse();
@@ -77,8 +77,10 @@ const contador = {
 
   // 5. Agrega el método actualizar()
   actualizar: function (parObstaculos) {
-   // Escribe tu código aquí
-
+    if (bird.left == parObstaculos.left) {
+      contador.puntaje += 1;
+      console.log("puntaje: " + contador.puntaje);
+    }
   },
 };
 
